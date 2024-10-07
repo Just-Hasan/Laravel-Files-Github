@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
 rel="stylesheet">
 </head>
-<body style="background: lightgray">
+<body style="background: #e9ecef">
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-12">
@@ -19,15 +19,17 @@ rel="stylesheet">
                 </div>
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <a href="{{ route('products.create') }}" class="btn btn-md btn-success mb3">ADD PRODUCT</a>
+                        <div style="width: 100%; display: flex">
+                            <a style="width: max-content; margin-left: auto;" href="{{ route('products.create') }}" class="btn btn-md btn-success mb-3 rounded-pill mr:auto ml:auto">TAMBAH</a>
+                        </div>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col">IMAGE</th>
-                                    <th scope="col">TITLE</th>
-                                    <th scope="col">PRICE</th>
-                                    <th scope="col">STOCK</th>
-                                    <th scope="col" style="width: 20%">ACTIONS</th>
+                                    <th style="text-align: center" scope="col">IMAGE</th>
+                                    <th style="text-align: center" scope="col">TITLE</th>
+                                    <th style="text-align: center" scope="col">PRICE</th>
+                                    <th style="text-align: center" scope="col">STOCK</th>
+                                    <th style="text-align: center" scope="col" style="width: 20%">ACTIONS</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -36,10 +38,10 @@ rel="stylesheet">
                                         <td class="text-center">
                                             <img src="{{ asset('/storage/public/products/'.$product->image) }}"class="rounded" style="width: 150px">
                                         </td>
-                                        <td>{{ $product->title }}</td>
+                                        <td >{{ $product->title }}</td>
                                         <td>{{ "Rp " . number_format($product->price,2,',','.') }}</td>
                                         <td>{{ $product->stock }}</td>
-                                        <td class="text-center">
+                                        <td >
                                             <form onsubmit="return confirm('Apakah Anda Yakin ?');"
                                             action="{{ route('products.destroy', $product->id) }}" method="POST">
                                                 <a href="{{ route('products.show', $product->id) }}" class="btn btn-sm btn-dark">SHOW</a>

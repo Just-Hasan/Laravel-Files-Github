@@ -20,7 +20,8 @@
                 </div>
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <a href="{{ route('products.create') }}" class="btn btn-md btn-success mb3">ADD PRODUCT</a>
+                        <a href="{{ route('products.create') }}" class="btn btn-md btn-success mb
+3">ADD PRODUCT</a>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -35,7 +36,7 @@
                                 @forelse ($products as $product)
                                     <tr>
                                         <td class="text-center">
-                                            <img src="{{ asset('/storage/products/' . $product->image) }}"
+                                            <img src="{{ asset('/storage/public/products/' . $product->image) }}"
                                                 class="rounded" style="width: 150px">
                                         </td>
                                         <td>{{ $product->title }}</td>
@@ -48,10 +49,12 @@
                                                     class="btn 
 btn-sm btn-dark">SHOW</a>
                                                 <a href="{{ route('products.edit', $product->id) }}"
-                                                    class="btn btnsm btn-primary">EDIT</a>
+                                                    class="btn btn
+sm btn-primary">EDIT</a>
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btndanger">HAPUS</button>
+                                                <button type="submit" class="btn btn-sm btn
+danger">HAPUS</button>
                                             </form>
                                         </td>
                                     </tr>
